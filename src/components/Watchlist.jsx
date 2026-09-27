@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { listMovies, createMovie, updateMovie, deleteMovie } from '../lib/movies'
 import MovieForm from './MovieForm'
 import MovieCard from './MovieCard'
+import { todayLocal } from '../lib/date'
 
 const SORTS = {
   newest: (a, b) => b.created_at.localeCompare(a.created_at),
@@ -26,7 +27,9 @@ export default function Watchlist() {
   }, [])
 
   async function handleCreate(row) {
-    const created = await createMovie(row)
+    const created = await createMovie(
+      row.status === 'watched' ? { ...row, watched_on: todayLocal() } : row
+    )
     setMovies((m) => [created, ...m])
   }
 

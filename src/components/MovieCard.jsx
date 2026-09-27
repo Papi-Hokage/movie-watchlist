@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import MovieForm from './MovieForm'
+import { todayLocal } from '../lib/date'
 
 function Stars({ value, onChange }) {
   return (
@@ -41,7 +42,7 @@ export default function MovieCard({ movie, onUpdate, onDelete }) {
     run(() =>
       onUpdate(movie.id, watched
         ? { status: 'want', rating: null, watched_on: null }
-        : { status: 'watched', watched_on: new Date().toISOString().slice(0, 10) })
+        : { status: 'watched', watched_on: todayLocal() })
     )
   }
 
@@ -59,7 +60,7 @@ export default function MovieCard({ movie, onUpdate, onDelete }) {
           onSubmit={async (row) => {
             const extra =
               row.status === 'watched' && !movie.watched_on
-                ? { watched_on: new Date().toISOString().slice(0, 10) }
+                ? { watched_on: todayLocal() }
                 : row.status === 'want' ? { watched_on: null } : {}
             await onUpdate(movie.id, { ...row, ...extra })
             setEditing(false)
