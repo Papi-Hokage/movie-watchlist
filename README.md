@@ -2,7 +2,7 @@
 
 A web app for keeping track of movies you want to watch and the ones you've already seen. Each user registers an account, and their watchlist is stored in a Supabase (PostgreSQL) database that only they can read or change.
 
-**Live app:** https://YOUR-SITE-NAME.netlify.app
+**Live app:** https://movie-watchlisted.netlify.app
 **Demo video (YouTube, unlisted):** https://youtu.be/YOUR-VIDEO-ID
 
 ![Movie Watchlist screenshot](docs/screenshot.png)
@@ -82,7 +82,7 @@ movie-watchlist/
 
 ### 1. Clone and install
 ```bash
-git clone https://github.com/YOUR-USERNAME/movie-watchlist.git
+git clone https://github.com/Papi-Hokage/movie-watchlist.git
 cd movie-watchlist
 npm install
 ```
