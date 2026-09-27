@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase, isConfigured } from './lib/supabaseClient'
 import Auth from './components/Auth'
+import Watchlist from './components/Watchlist'
 
 export default function App() {
   const [session, setSession] = useState(null)
@@ -39,8 +40,15 @@ export default function App() {
 
   return (
     <div className="app">
-      <p>Logged in as {session.user.email}</p>
-      <button className="btn" onClick={() => supabase.auth.signOut()}>Log out</button>
+      <header className="topbar">
+        <h1 className="brand">Movie Watchlist</h1>
+        <div className="row">
+          <span className="muted small">{session.user.email}</span>
+          <button className="btn small" onClick={() => supabase.auth.signOut()}>Log out</button>
+        </div>
+      </header>
+      {/* key forces a fresh load if a different user logs in */}
+      <Watchlist key={session.user.id} />
     </div>
   )
 }
