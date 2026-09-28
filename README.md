@@ -3,7 +3,7 @@
 A web app for keeping track of movies you want to watch and the ones you've already seen. Each user registers an account, and their watchlist is stored in a Supabase (PostgreSQL) database that only they can read or change.
 
 **Live app:** https://movie-watchlisted.netlify.app
-**Demo video (YouTube, unlisted):** https://youtu.be/YOUR-VIDEO-ID
+**Demo video (YouTube, unlisted):** https://youtu.be/gkRbOHT8eLw
 
 ![Movie Watchlist screenshot](docs/screenshot.png)
 
